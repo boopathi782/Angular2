@@ -1,0 +1,134 @@
+<!-- <p>appoimentcreate works!</p>  -->
+
+<div class="container">
+      <div class="row">
+        <div class="col-sm-4"> 
+          <ngb-datepicker #dp [(ngModel)]="model" (navigate)="$event.next" (dateSelect)="onDateSelection($event)"></ngb-datepicker> 
+
+          <!-- <pre>{{ model |json}}  </pre> -->
+        </div>
+        <div class="col-sm">   
+                Morning   9 To 12
+                <br>
+                 <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#MorningModal">
+                  Add Slots
+                </button> 
+                  <br><br>
+
+                  
+                  
+
+                        <span *ngFor="let Slot of Slot_result " > 
+                            <button  type="button" class="btn btn-outline-primary">{{Slot.from_time}} - {{Slot.to_time}}</button> &nbsp;&nbsp;
+                          
+                        </span>
+
+
+                <br>  <br>  <br>  <br>  <br>  <br>  <br> 
+                Evening  17 to 21
+                <br>
+                 <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EventingModal">
+                  Add Slots
+                </button>
+                <br>
+                <span> times comes here </span> 
+ 
+
+               <!--  <table class="table table-striped">
+                  <thead>
+                      <tr>
+                          <th>Email</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let Slot of Slot_result">
+                          <td>{{Slot.slot_mode}}</td>
+                          <td>{{Slot.date_value}}</td>
+                          <td>{{Slot.from_time}}</td>
+                      </tr>
+                  </tbody>
+              </table> --> 
+
+                
+        </div>
+      </div>     
+</div>
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<!-- <ul class="products">
+  <li *ngFor="let p of Appointments; let i=index;">
+    <a routerLink="/product-details/{{p._id}}">
+      <span class="badge">{{i+1}}</span> {{p.prod_name}}
+    </a>
+    <button class="delete" title="delete product"
+      (click)="delete(p._id)">x</button>
+  </li>
+</ul> -->
+
+<!-- test --> 
+
+<!-- MorningModal -->
+<div class="modal fade" id="MorningModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Morning Time Slote</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <form #morningform="ngForm" (ngSubmit)="MorningForm(morningform)" class="form form-register">
+            <div class="modal-body"> 
+                <input type="text" name="from_time" id="from-time"  class="form-input" placeholder="From Time"  ngModel required> &nbsp;&nbsp;
+               <input type="text" name="to_time" id="to-time" class="form-input" placeholder="To Time" ngModel required>
+             <br><br> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="EventingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Evening Time  Slote</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #myform="ngForm" (ngSubmit)="EveningForm(myform)" class="form form-register">
+          <div class="modal-body"> 
+               <input type="text" name="evening_from_time" id="evening-from-time"  class="form-input" placeholder="From Time"  ngModel required> &nbsp;&nbsp;
+               <input type="text" name="evening_to_time" id="evening-to-time" class="form-input" placeholder="To Time"  ngModel required>
+            <br><br> 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
